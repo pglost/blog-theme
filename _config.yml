@@ -1,0 +1,20 @@
+# Site settings
+title: HappyRain
+email: xiyuvip@163.com
+description: > # this means to ignore newlines until "baseurl:"
+
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.fullstacks.info" # the base hostname & protocol for your site
+twitter_username: happyrain
+github_username:  happyrain
+#pages
+excerpt_separator: "<!--more-->"
+paginate: 5
+paginate_path: "page:num"
+#comment
+duoshuo_shortname: happyrain
+#feed atom
+owner:
+  name: happyrain
+# Build settings
+markdown: kramdown

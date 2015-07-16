@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+	{% if site.duoshuo_shortname and page.comments == true %}<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}"></div><!-- /#duoshuo_thread -->{% endif %}
+    {% include footer.html %}
+	{% include scripts.html %}
+  </body>
+
+</html>
