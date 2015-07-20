@@ -16,7 +16,7 @@ publish/subscribe模式其实就是观察者模式，这种模式提供了一种
 
 ### 代码
 
-{% highlight javascript %}
+
 //事件管理对象的构造函数
 function EventManger(){
     this.handlers = {};    
@@ -58,7 +58,7 @@ EventManger.prototype = {
         }            
     }
 };
-{% endhighlight %}
+
 
 ## publish/subscribe模式的应用
 
