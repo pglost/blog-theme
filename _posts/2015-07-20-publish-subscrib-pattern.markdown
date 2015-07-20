@@ -4,11 +4,18 @@ title:  "使用js实现一个publish/subscribe模式"
 date:   2015-07-20 14:30:54
 categories: design pattern
 ---
-# 什么是publish/subscribe模式
+* content
+{:toc}
+
+
+## 什么是publish/subscribe模式
+
 publish/subscribe模式其实就是观察者模式，这种模式提供了一种事件管理的机制。在这种机制下，某些对象可以向“事件管理内核”发送订阅(subscribe)“信号”，表示该对象注册了某个类型的事件；另外一些对象可以向“事件管理中心”发送发布（publish）信号，表示要触发某个类型的事件。
-<!--more-->
-# publish/subscribe模式中的事件管理内核
-## 代码
+
+## publish/subscribe模式中的事件管理内核
+
+### 代码
+
 {% highlight javascript %}
 //事件管理对象的构造函数
 function EventManger(){
@@ -52,11 +59,17 @@ EventManger.prototype = {
     }
 };
 {% endhighlight %}
-## 举例
+
+## publish/subscribe模式的应用
+
 下面举一个简单的图书馆书目管理的例子，来说明publish/subscribe模式的作用
+
 ### 说明
+
 本例中有三类对象，Book类型的对象代表一条图书记录，BookCollection类型的对象代表所有馆藏图书，里面存有所有图书的记录以及添加删除书籍记录的方法，BookListView类型的对象表示待显示的所有图书的记录。在这里，BookCollection为发布者，BookListView为订阅者。我们期望，在对BookCollection类型的对象进行添加或删除操作时，BookListView类型的对象也能有相应的响应。
+
 ### 代码
+
 {% highlight js %}
 //创建事件管理器
 var eventManger = new EventManger();
@@ -128,7 +141,9 @@ var book1 = new Book("JavaScript高级程序设计","9787115000415"),
 
 	bookCol.removeBook(book1);
 {% endhighlight %}
+
 ### 结果
+
 ![结果](/public/img/使用js实现一个publishsubscribe模式-运行结果.PNG)
 
 

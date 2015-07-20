@@ -15,9 +15,9 @@ layout: default
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
         {% if site.excerpt_separator %}
-        <p>{{ post.excerpt }}<p>
+		
         {% else %}
-        <p>{{ post.content }}</p>
+		
         {% endif %}
       </li>
     {% endfor %}
@@ -45,9 +45,9 @@ layout: default
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
 		{% if site.excerpt_separator %}
-        <p>{{ post.excerpt }}<p>
+		
         {% else %}
-        <p>{{ post.content }}</p>
+		
         {% endif %}
       </li>
     {% endfor %}
