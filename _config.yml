@@ -17,4 +17,5 @@ duoshuo_shortname: happyrain
 owner:
   name: happyrain
 # Build settings
+highlighter: pygments
 markdown: kramdown
