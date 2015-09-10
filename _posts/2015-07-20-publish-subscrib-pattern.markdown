@@ -16,49 +16,48 @@ publish/subscribe模式其实就是观察者模式，这种模式提供了一种
 
 ### 代码
 
-{% highlight javascript %}
 //事件管理对象的构造函数
 function EventManger(){
-    this.handlers = {};    
+    this.handlers = {};
 }
 //为事件管理对象的构造函数添加原型
-EventManger.prototype = {
-    constructor: EventManger,
-//订阅函数，即注册事件
-    subscribe: function(type, handler){
-        if (typeof this.handlers[type] == "undefined"){
-            this.handlers[type] = [];
-        }
 
-        this.handlers[type].push(handler);
-    },
-//发布函数，即触发事件    
-    publish: function(event){
-        if (!event.target){
-            event.target = this;
-        }
-        if (this.handlers[event.type] instanceof Array){
-            var handlers = this.handlers[event.type];
-            for (var i=0, len=handlers.length; i < len; i++){
-                handlers[i](event);
+    EventManger.prototype = {
+        constructor: EventManger,
+    //订阅函数，即注册事件
+        subscribe: function(type, handler){
+            if (typeof this.handlers[type] == "undefined"){
+                this.handlers[type] = [];
             }
-        }            
-    },
-//移除事件注册
-    remove: function(type, handler){
-        if (this.handlers[type] instanceof Array){
-            var handlers = this.handlers[type];
-            for (var i=0, len=handlers.length; i < len; i++){
-                if (handlers[i] === handler){
-                    break;
+
+            this.handlers[type].push(handler);
+        },
+    //发布函数，即触发事件
+        publish: function(event){
+            if (!event.target){
+                event.target = this;
+            }
+            if (this.handlers[event.type] instanceof Array){
+                var handlers = this.handlers[event.type];
+                for (var i=0, len=handlers.length; i < len; i++){
+                    handlers[i](event);
                 }
             }
-            
-            handlers.splice(i, 1);
-        }            
-    }
-};
-{% endhighlight %}
+        },
+    //移除事件注册
+        remove: function(type, handler){
+            if (this.handlers[type] instanceof Array){
+                var handlers = this.handlers[type];
+                for (var i=0, len=handlers.length; i < len; i++){
+                    if (handlers[i] === handler){
+                        break;
+                    }
+                }
+
+                handlers.splice(i, 1);
+            }
+        }
+    };
 
 ## publish/subscribe模式的应用
 
