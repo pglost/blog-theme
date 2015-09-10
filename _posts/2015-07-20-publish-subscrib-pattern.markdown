@@ -16,48 +16,47 @@ publish/subscribe模式其实就是观察者模式，这种模式提供了一种
 
 ### 代码
 
-//事件管理对象的构造函数
-function EventManger(){
-    this.handlers = {};
-}
-//为事件管理对象的构造函数添加原型
+	//事件管理对象的构造函数
+	function EventManger(){
+	    this.handlers = {};
+	}
+	//为事件管理对象的构造函数添加原型
+	EventManger.prototype = {
+	    constructor: EventManger,
+	//订阅函数，即注册事件
+	    subscribe: function(type, handler){
+	        if (typeof this.handlers[type] == "undefined"){
+	            this.handlers[type] = [];
+	        }
 
-    EventManger.prototype = {
-        constructor: EventManger,
-    //订阅函数，即注册事件
-        subscribe: function(type, handler){
-            if (typeof this.handlers[type] == "undefined"){
-                this.handlers[type] = [];
-            }
+	        this.handlers[type].push(handler);
+	    },
+	//发布函数，即触发事件
+	    publish: function(event){
+	        if (!event.target){
+	            event.target = this;
+	        }
+	        if (this.handlers[event.type] instanceof Array){
+	            var handlers = this.handlers[event.type];
+	            for (var i=0, len=handlers.length; i < len; i++){
+	                handlers[i](event);
+	            }
+	        }
+	    },
+	//移除事件注册
+	    remove: function(type, handler){
+	        if (this.handlers[type] instanceof Array){
+	            var handlers = this.handlers[type];
+	            for (var i=0, len=handlers.length; i < len; i++){
+	                if (handlers[i] === handler){
+	                    break;
+	                }
+	            }
 
-            this.handlers[type].push(handler);
-        },
-    //发布函数，即触发事件
-        publish: function(event){
-            if (!event.target){
-                event.target = this;
-            }
-            if (this.handlers[event.type] instanceof Array){
-                var handlers = this.handlers[event.type];
-                for (var i=0, len=handlers.length; i < len; i++){
-                    handlers[i](event);
-                }
-            }
-        },
-    //移除事件注册
-        remove: function(type, handler){
-            if (this.handlers[type] instanceof Array){
-                var handlers = this.handlers[type];
-                for (var i=0, len=handlers.length; i < len; i++){
-                    if (handlers[i] === handler){
-                        break;
-                    }
-                }
-
-                handlers.splice(i, 1);
-            }
-        }
-    };
+	            handlers.splice(i, 1);
+	        }
+	    }
+	};
 
 ## publish/subscribe模式的应用
 
@@ -69,77 +68,74 @@ function EventManger(){
 
 ### 代码
 
-{% highlight js %}
-//创建事件管理器
-var eventManger = new EventManger();
-//Book类型对象构造函数
-function Book(name, isbn) {
-    this.name = name;
-    this.isbn = isbn;
-}
-//BookCollection类型对象构造函数
-function BookCollection(books) {
-    this.books = books;
-}
 
-BookCollection.prototype = {
-	constructor: BookCollection,
-
-	addBook: function (book) {
-    	this.books.push(book);
-    	eventManger.publish({type:'book-added',info:book});
-   		return book;
-		}
-	removeBook: function (book) {
-   		var removed;
-   		if (typeof book === 'number') {
-       		removed = this.books.splice(book, 1);
-   			}
-  		for (var i = 0; i < this.books.length; i += 1) {
-      		if (this.books[i] === book) {
-         	 removed = this.books.splice(i, 1);
-      		}
-   		}
-    	eventManger.publish({type:'book-removed',info:book});
-   		return removed;
+	//创建事件管理器
+	var eventManger = new EventManger();
+	//Book类型对象构造函数
+	function Book(name, isbn) {
+	    this.name = name;
+	    this.isbn = isbn;
 	}
-}
+	//BookCollection类型对象构造函数
+	function BookCollection(books) {
+	    this.books = books;
+	}
+
+	BookCollection.prototype = {
+		constructor: BookCollection,
+
+		addBook: function (book) {
+	    	this.books.push(book);
+	    	eventManger.publish({type:'book-added',info:book});
+	   		return book;
+			}
+		removeBook: function (book) {
+	   		var removed;
+	   		if (typeof book === 'number') {
+	       		removed = this.books.splice(book, 1);
+	   			}
+	  		for (var i = 0; i < this.books.length; i += 1) {
+	      		if (this.books[i] === book) {
+	         	 removed = this.books.splice(i, 1);
+	      		}
+	   		}
+	    	eventManger.publish({type:'book-removed',info:book});
+	   		return removed;
+		}
+	}
+	//订阅者
+	var BookListView = (function () {
+
+	   function removeBook(event) {
+	      console.log("removeBook " + " isbn:" + event.info.isbn + "  name:" + event.info.name);
+	   }
+
+	   function addBook(event) {
+	     console.log("addBook " + " isbn:" + event.info.isbn + "  name:" + event.info.name);
+	   }
+
+	   return {
+	      init: function () {
+	         eventManger.subscribe('book-removed', removeBook);
+	         eventManger.subscribe('book-added', addBook);
+	      }
+	   }
+	}());
 
 
-//订阅者
-var BookListView = (function () {
+	var book1 = new Book("JavaScript高级程序设计","9787115000415"),
+		book2 = new Book("锋利的jQuery","9787115281609"),
+		books = [],
+		bookCol = new BookCollection(books);
+	//为BookListView订阅'book-removed'和'book-added'事件
+		BookListView.init();
+	//bookCol添加book1，并发布'book-added'事件
+		bookCol.addBook(book1);
+		bookCol.addBook(book2);
+	//bookCol移除book1，并发布'book-removed'事件
+		bookCol.removeBook(book2);
 
-   function removeBook(event) {
-      console.log("removeBook " + " isbn:" + event.info.isbn + "  name:" + event.info.name);
-   }
-
-   function addBook(event) {
-     console.log("addBook " + " isbn:" + event.info.isbn + "  name:" + event.info.name);
-   }
-
-   return {
-      init: function () {
-         eventManger.subscribe('book-removed', removeBook);
-         eventManger.subscribe('book-added', addBook);
-      }
-   }
-}());
-
-
-var book1 = new Book("JavaScript高级程序设计","9787115000415"),
-	book2 = new Book("锋利的jQuery","9787115281609"),
-	books = [],
-	bookCol = new BookCollection(books);
-//为BookListView订阅'book-removed'和'book-added'事件
-	BookListView.init();
-//bookCol添加book1，并发布'book-added'事件
-	bookCol.addBook(book1);
-	bookCol.addBook(book2);
-//bookCol移除book1，并发布'book-removed'事件
-	bookCol.removeBook(book2);
-
-	bookCol.removeBook(book1);
-{% endhighlight %}
+		bookCol.removeBook(book1);
 
 ### 结果
 
