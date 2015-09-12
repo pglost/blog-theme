@@ -1,0 +1,128 @@
+.banner-page {
+  height: 450px;
+  background-size: cover;
+  background-position: 50% 50%;
+  //margin-top: -$header-height;
+  .tagline {
+    margin-top: 150px;
+    margin-bottom: 10px;
+    color:#fff;
+    text-align: center;
+    font-size: 40px;
+    font-weight: normal;
+  }
+  .tagline-caption {
+    color: $primary-color-text;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+}
+@media (max-width: 970px) {
+  .banner-page {
+    height: 350px;
+    .tagline {
+      margin-top: 100px;
+      font-size: 35px;
+    }
+    .tagline-caption {
+      font-size: 16px;
+    }
+  }
+}
+@media (max-width: 770px) {
+  .banner-page {
+    height: 250px;
+  }
+}
+
+.post-list-wrapper {
+  padding: 50px 0;
+  background: $primary-color-light;
+  .post {
+    position: relative;
+    float: left;
+    background: $primary-color-text;
+    width: 29.3%;
+    height: 320px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 1px rgba(0,0,0,.08);
+    .thumbnail {
+    display: block;
+    position: relative;
+    &:before {
+      display: block;
+      content: " ";
+      position:absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    &:hover:before {
+     opacity: 0.6;
+    }
+    .thumbnail-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    }
+    .post-info {
+      margin: 24px;
+      h3 {
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: normal;
+      }
+      a {
+        color: #000;
+      }
+      &:hover {
+        color: #b5b9bd;
+      }
+    }
+    .date {
+      position: absolute;
+      left: 24px;
+      bottom: 10px;
+      font-size: 13px;
+      color: #b5b9bd;
+    }
+  }
+
+}
+
+@media (max-width: 500px ) {
+ .post-list-wrapper {
+    .post {
+      width: 46%;
+      margin-left: 2%;
+      margin-right: 2%;
+      height: 280px;
+    }
+  }
+}
+.pagination {
+  clear: both;
+  text-align: center;
+}
+.previous,.next {
+  display: inline-block;
+  padding-left:25px;
+  padding-right:25px;
+  font-size: 25px;
+  color: $secondary-text-color;
+}

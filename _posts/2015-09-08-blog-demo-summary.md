@@ -3,6 +3,8 @@ layout: post
 title:  "基于响应式设计的个人博客demo总结"
 date:   2015-09-08 13:30:54
 categories: design pattern
+banner-url: "/public/images/post-banner/learn-by-making.jpg"
+
 ---
 
 * content
@@ -29,7 +31,7 @@ clearfix 是一种 CSS 技巧，可以在不添加新的 html 标签的前提下
 	.clearfix:after {
 		clear: both;
 	}
-	
+
 ### 子元素浮动问题
 
 子元素浮动指的是如果一个父元素的子元素都设置为浮动，那么这个父元素的高度都为零，从而给页面的布局带来很多问题.
@@ -46,7 +48,7 @@ clearfix 是一种 CSS 技巧，可以在不添加新的 html 标签的前提下
 	 	display: table;
 	 	clear: both;
 	}
-	
+
 QA：
 为什么这里display设置为table，设置也block可不可以？
 
@@ -60,13 +62,14 @@ QA：
 解决方案类似于子元素浮动问题，即在子元素的头尾分别插入两个伪元素即可。
 
 代码：
+
 	.clearfix:before,
 	.clearfix:after
 	{
 	 	content: "   ";
 	 	display: table;
 	}
-	
+
 ###总结
 
 综合以上两种使用场景，合并后的代码为：
@@ -80,7 +83,7 @@ QA：
 	.clearfix:after {
 		clear: both;
 	}
-	
+
 如果想兼容IE6/7，可以继续添加如下代码：
 
 	.clearfix {
@@ -91,18 +94,18 @@ QA：
 ## 如何设置大背景图
 
 ### 为元素添加背景图
-	
+
 	background-url = url("your path");
-	
+
 ### 设置背景图完全覆盖背景区域
 	background-size : cover;
 
 ### 设置背景图的起始位置
-	
+
 当背景区域缩小到比背景图还要小时，可以选择让背景图的哪部分显示出。
 
-	background-positon: 50% 50%;	
-	
+	background-positon: 50% 50%;
+
 ##CSS优先级计算
 
 CSS的优先级在英文中所对应的单词为[Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)，直译过来应该是精确度，这正好阐述了优先级计算所依据的基本准则，具体来说：
@@ -131,7 +134,7 @@ CSS样式如下
 	  display: block;
 	  position: relative;
 	}
-	
+
 	.thumbnail:before {
 	  display: block;
 	  content: " ";
@@ -146,7 +149,7 @@ CSS样式如下
 	  opacity: 0;
 	  transition: opacity 1s;
 	}
-	
+
 	.thumbnail:hover:before {
 	   opacity: 0.6;
 	}
@@ -167,7 +170,7 @@ CSS样式如下
 
 实现的思路是把header下面的banner元素的margin-top的值设置为负的header的高度，这样就会导致header中的背景被覆盖。
 
-![透明header](/public/img/z-index2.png)	
+![透明header](/public/img/z-index2.png)
 
 header元素的CSS如下：
 
@@ -186,15 +189,15 @@ header元素的CSS如下：
 
 使用步骤：
 
-1.去[官网](http://fortawesome.github.io/Font-Awesome/)下载
+1. 去[官网](http://fortawesome.github.io/Font-Awesome/)下载
 
-2.进入下载的文件夹，根据个人需要选择使用css/less/scss,将fonts文件夹和你选用的css/less/scss文件夹拷贝到项目的目录下
+2. 进入下载的文件夹，根据个人需要选择使用css/less/scss,将fonts文件夹和你选用的css/less/scss文件夹拷贝到项目的目录下
 
-3.将font-awesome样式文件链接到hmtl文件，根据如下语法选用不同的图标。可以到官网的[Icons](http://fortawesome.github.io/Font-Awesome/icons/)页面寻找你需要的图标名替换icon-name
+3. 将font-awesome样式文件链接到hmtl文件，根据如下语法选用不同的图标。可以到官网的[Icons](http://fortawesome.github.io/Font-Awesome/icons/)页面寻找你需要的图标名替换icon-name
 
 	<i class="fa fa-icon-name"></i>
-	
-4.为图标设置样式，主要是设置字体颜色，背景，居中等
+
+4. 为图标设置样式，主要是设置字体颜色，背景，居中等
 
 我的footer代码
 
@@ -257,9 +260,9 @@ CSS:
 ##为博客添加favicon
 
 在head中添加如下代码即可实现：
-	
+
 	<link rel="short icon" type="image/x-icon"href="images/favicon.ico">
-	
+
 效果：
 
 ![favicon](/public/img/favicon.png)
@@ -274,9 +277,9 @@ blog-demo中涉及到的响应式设计主要集中在两方面：
 2. 使用相对长度单位
 
 当然，在head中设置viewport也是必不可少的：
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 pc上的显示效果：
 
 ![responsive-pc](/public/img/responsive-pc.png)
@@ -299,13 +302,13 @@ pc上的显示效果：
 
 ##下一步的计划
 
-1.把blog-demo迁移到本博客上。
+1. 把blog-demo迁移到本博客上。
 
-2.使用glup+react+webpack重新构建一个新的demo
+2. 使用glup+react+webpack重新构建一个新的demo
 
 
-	
-	
+
+
 
 
 

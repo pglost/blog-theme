@@ -1,9 +1,11 @@
 ---
-layout: post
+layout:  post
 title:  "使用js实现一个publish/subscribe模式"
 date:   2015-07-20 14:30:54
-categories: design pattern
+categories:  design pattern
+banner-url:  "/public/images/post-banner/new-way-out.jpg"
 ---
+
 * content
 {:toc}
 

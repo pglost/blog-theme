@@ -9,7 +9,7 @@ twitter_username: happyrain
 github_username:  happyrain
 #pages
 excerpt_separator: "<!--more-->"
-paginate: 5
+paginate: 6
 paginate_path: "page:num"
 #comment
 duoshuo_shortname: happyrain

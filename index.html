@@ -3,57 +3,73 @@ layout: default
 ---
 
 <div class="home">
+  <div class="banner-page clearfix" style="background-image:url('./public/images/main/banner.jpg');">
+   <h1 class="tagline">
+     Hi,I am Rain
+   </h1>
+   <div class="tagline-caption">
+     Web Developer<br/>
+     Open Source Software Enthusiast<br/>
+     Post Graduate
+   </div>
+  </div>
 
-  <h1 class="page-heading">Posts</h1>
+  <div class="post-list-wrapper">
+    <div class="container clearfix">
+      {% if site.paginate %}
+        {% for post in paginator.posts %}
+          <div class="post">
+            <a href="{{ post.url | prepend: site.baseurl }}" class="thumbnail">
+              <img src="{{ post.banner-url | prepend: site.baseurl }}" alt="" class="thumbnail-image">
+            </a>
+            <div class="post-info">
+              <h3>
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+              </h3>
+            </div>
+            <div class="date">
+              {{ post.date | date: "%b %-d, %Y" }}
+            </div>
+          </div>
+        {% endfor %}
+        <div class="pagination">
+          {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="previous">
+              <i class="fa fa-hand-o-right"></i>
+            </a>
 
-  <ul class="post-list">
-	{% if site.paginate %}
-	{% for post in paginator.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        {% if site.excerpt_separator %}
-		
-        {% else %}
-		
-        {% endif %}
-      </li>
-    {% endfor %}
-    <div class="pagination">
-    {% if paginator.previous_page %}
-		<a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-    {% else %}
-		<span class="previous">Previous</span>
-    {% endif %}
-    <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-    {% if paginator.next_page %}
-		<a href="{{ paginator.next_page_path }}" class="next">Next</a>
-    {% else %}
-		<span class="next ">Next</span>
-    {% endif %}
-    </div>  
-  
-  
-    {% else %}
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-		{% if site.excerpt_separator %}
-		
-        {% else %}
-		
-        {% endif %}
-      </li>
-    {% endfor %}
-	{% endif %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via atom</a></p>
-
+          {% else %}
+            <span class="previous"><i class="fa fa-hand-o-left"></i></span>
+          {% endif %}
+            <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next">
+              <i class="fa fa-hand-o-right"></i>
+            </a>
+          {% else %}
+            <span class="next ">
+              <i class="fa fa-hand-o-right"></i>
+            </span>
+          {% endif %}
+        </div>
+      {% else %}
+        {% for post in paginator.posts %}
+          <div class="post">
+            <a href="{{ post.url | prepend: site.baseurl }}" class="thumbnail">
+              <img src="{{ post.banner | prepend: site.baseurl }}" alt="" class="thumbnail-image">
+            </a>
+            <div class="post-info">
+              <h3>
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+              </h3>
+            </div>
+            <div class="date">
+              {{ post.date | date: "%b %-d, %Y" }}
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via atom</a></p> -->
 </div>

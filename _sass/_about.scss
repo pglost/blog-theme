@@ -1,0 +1,91 @@
+.about-banner {
+  height: 300px;
+  background-size: cover;
+  margin-top: -50px;
+}
+
+
+.open-source {
+  margin-top: 50px;
+}
+
+.open-source img {
+  display: block;
+  width: 400px;
+  float: left;
+}
+
+.open-source .text {
+  float: right;
+  width: 500px;
+}
+
+.open-source h3 {
+  font-size: 35px;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  color: #000;
+  padding-top: 15px;
+}
+
+.about-me {
+  margin-top: 70px;
+  background: #df4a32;
+  color: #fff;
+  padding: 30px;
+}
+
+.about-me img {
+  display: block;
+  border-radius: 50%;
+  width: 100px;
+  margin: 20px auto;
+}
+
+.about-me .tagline {
+  color: #fff;
+  text-align: center;
+}
+
+.my-work .title {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 200;
+  font-size: 30px;
+  color: #000;
+}
+.work-list .work {
+  width: 320px;
+  float: left;
+  text-align: center;
+}
+.work-list .icon {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 50px;
+  text-align: center;
+  line-height: 150px;
+}
+.work .text {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #000;
+}
+
+.work .text:hover {
+  color: #b5b9bd;
+}
+
+.work-list .icon.book {
+  background: #80C566;
+}
+.work-list .icon.code {
+  background: #9173B2;
+}
+.work-list .icon.video {
+  background: #00c4cc;
+}

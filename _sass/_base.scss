@@ -13,13 +13,17 @@ dl, dd, ol, ul, figure {
 /**
  * Basic styling
  */
+ * {
+  box-sizing:border-box;
+}
+
 body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
     font-weight: 300;
-    color: $text-color;
-    background-color: $background-color;
+    color: $primary-text-color;
+    background-color: $primary-color-text;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -36,13 +40,15 @@ ul, ol, dl, figure,
 }
 
 
-
 /**
  * Images
  */
 img {
+    border: none;
     max-width: 100%;
+    display: block;
     vertical-align: middle;
+    margin: 0px auto;
 }
 
 
@@ -66,13 +72,19 @@ figcaption {
 ul, ol {
     margin-left: $spacing-unit;
 }
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
+ul {
+    li {
+      list-style: none;
     }
 }
+
+li {
+        > ul,
+        > ol {
+             margin-bottom: 0;
+        }
+}
+
 
 
 
@@ -91,14 +103,14 @@ h1, h2, h3, h4, h5, h6 {
 a {
     color: $brand-color;
     text-decoration: none;
-
+    transition: all 0.3s;
     &:visited {
         color: darken($brand-color, 15%);
     }
 
     &:hover {
         color: $text-color;
-        text-decoration: underline;
+        // text-decoration: underline;
     }
 }
 
@@ -170,6 +182,10 @@ pre {
         padding-left: $spacing-unit / 2;
     }
 }
+.container {
+  width: 96%;
+  margin: 0 auto;
+}
 
 
 
@@ -184,7 +200,15 @@ pre {
         clear: both;
     }
 }
-
+.clearfix {
+  &:before,&:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
 
 
 /**
@@ -203,3 +227,10 @@ pre {
         }
     }
 }
+
+
+
+
+
+
+
