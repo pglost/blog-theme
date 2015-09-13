@@ -2,6 +2,7 @@
   height: 450px;
   background-size: cover;
   background-position: 50% 50%;
+  margin-top: -$header-height;
   //margin-top: -$header-height;
   .tagline {
     margin-top: 150px;
@@ -86,12 +87,13 @@
         font-size: 18px;
         line-height: 1.6;
         font-weight: normal;
+        text-align: center;
       }
       a {
         color: #000;
-      }
-      &:hover {
+        &:hover {
         color: #b5b9bd;
+        }
       }
     }
     .date {

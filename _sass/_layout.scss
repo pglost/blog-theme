@@ -1,15 +1,11 @@
 /**
  * Site header
  */
-/*variable*/
-$header-height: 50px;
-$footer-height: 200px;
-$logo-size: 60px;
-$icon-size: 40px;
+
 
 .header {
   height: $header-height;
-  background: $primary-color;
+  background: rgba(0,0,0,0.2);
   position: relative;
   z-index: 1;
   .nav {

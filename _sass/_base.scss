@@ -109,7 +109,7 @@ a {
     }
 
     &:hover {
-        color: $text-color;
+        //color: $text-color;
         // text-decoration: underline;
     }
 }
@@ -182,10 +182,15 @@ pre {
         padding-left: $spacing-unit / 2;
     }
 }
+
 .container {
-  width: 96%;
+  width: 960px;
   margin: 0 auto;
+  @include media-query(970px){
+    width: 96%;
+  }
 }
+
 
 
 

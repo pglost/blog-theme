@@ -1,6 +1,6 @@
 ---
 layout:  post
-title:  "使用js实现一个publish/subscribe模式"
+title:  "发布/订阅者模式"
 date:   2015-07-20 14:30:54
 categories:  design pattern
 banner-url:  "/public/images/post-banner/new-way-out.jpg"
@@ -141,6 +141,6 @@ publish/subscribe模式其实就是观察者模式，这种模式提供了一种
 
 ### 结果
 
-![结果](/public/img/使用js实现一个publishsubscribe模式-运行结果.PNG)
+![结果](/public/images/post-content/2/使用js实现一个publishsubscribe模式-运行结果.PNG)
 
 

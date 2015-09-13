@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "基于响应式设计的个人博客demo总结"
+title:  "博客构建总结"
 date:   2015-09-08 13:30:54
 categories: design pattern
 banner-url: "/public/images/post-banner/learn-by-making.jpg"
@@ -12,7 +12,7 @@ banner-url: "/public/images/post-banner/learn-by-making.jpg"
 
 ## 概述
 
-最近花了大概一周的时间，写了一个[博客](http://fullstacks.info/blog-demo/)的demo，使用github托管。除了使用jekyll框架中的layouts，没有用到其它任何前端框架，也算是锻炼了裸写html和css的能力。本文对搭建博客中使用的技术要点加以总结，并且后期计划依照demo重构本博客。
+最近花了大概一周的时间，写了一个[博客](http://fullstacks.info/blog-demo/)的demo，使用github托管。除了使用jekyll，没有用到其它任何前端框架，也算是锻炼了裸写html和css的能力。本文对搭建博客中使用的技术要点加以总结，并且后期计划依照demo重构本博客。
 
 ## 清除浮动
 
@@ -166,11 +166,11 @@ CSS样式如下
 
 为了给header添加如下的效果，需要涉及到[z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)属性。
 
-![透明header](/public/img/z-index.png)
+![透明header](/public/images/post-content/2/z-index.png)
 
 实现的思路是把header下面的banner元素的margin-top的值设置为负的header的高度，这样就会导致header中的背景被覆盖。
 
-![透明header](/public/img/z-index2.png)
+![透明header](/public/images/post-content/2/z-index2.png)
 
 header元素的CSS如下：
 
@@ -185,7 +185,7 @@ header元素的CSS如下：
 
 [Font Awesome](http://fortawesome.github.io/Font-Awesome/)是一款很流行的字体图标工具。在我的blog-demo中使用这个工具为footer添加好看的图标。
 
-![footer效果](/public/img/font-awesome.png)
+![footer效果](/public/images/post-content/2/font-awesome.png)
 
 使用步骤：
 
@@ -265,7 +265,7 @@ CSS:
 
 效果：
 
-![favicon](/public/img/favicon.png)
+![favicon](/public/images/post-content/2/favicon.png)
 
 title前面多了个可爱的小图标^-^
 
@@ -282,23 +282,23 @@ blog-demo中涉及到的响应式设计主要集中在两方面：
 
 pc上的显示效果：
 
-![responsive-pc](/public/img/responsive-pc.png)
+![responsive-pc](/public/images/post-content/2/responsive-pc.png)
 
 ipad上的显示效果：
 
-![responsive-ipad](/public/img/responsive-ipad.png)
+![responsive-ipad](/public/images/post-content/2/responsive-ipad.png)
 
 iphone6plus上的显示效果：
 
-![responsive-ip6plus](/public/img/responsive-ip6plus.png)
+![responsive-ip6plus](/public/images/post-content/2/responsive-ip6plus.png)
 
 iphone6上的显示效果：
 
-![responsive-ip6](/public/img/responsive-ip6.png)
+![responsive-ip6](/public/images/post-content/2/responsive-ip6.png)
 
-pc上的显示效果：
+iphone5上的显示效果：
 
-![responsive-ip5](/public/img/responsive-ip5.png)
+![responsive-ip5](/public/images/post-content/2/responsive-ip5.png)
 
 ##下一步的计划
 
