@@ -1,10 +1,9 @@
 ---
 layout: post
-title:  "博客构建总结"
+title:  "博客重构总结"
 date:   2015-09-08 13:30:54
 categories: design pattern
 banner-url: "/public/images/post-banner/learn-by-making.jpg"
-
 ---
 
 * content

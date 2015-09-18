@@ -141,6 +141,6 @@ publish/subscribe模式其实就是观察者模式，这种模式提供了一种
 
 ### 结果
 
-![结果](/public/images/post-content/2/使用js实现一个publishsubscribe模式-运行结果.PNG)
+![结果](/public/images/post-content/publisher-subscriber-pattern/result.png)
 
 
