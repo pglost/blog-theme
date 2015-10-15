@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "LeetCode:Implement strStr()"
+title:  "LeetCode: Implement strStr()"
 date:   2015-08-10 13:30:54
 categories: leetcode
 banner-url: "/public/images/post-banner/algorithm.jpg"
