@@ -1,5 +1,5 @@
 # Site settings
-title: HappyRain
+title: Pg.lost
 email: xiyuvip@163.com
 description: > # this means to ignore newlines until "baseurl:"
 
@@ -15,7 +15,7 @@ paginate_path: "page:num"
 duoshuo_shortname: happyrain
 #feed atom
 owner:
-  name: happyrain
+  name: Pg.lost
 # Build settings
 #highlighter: false
 markdown: kramdown
